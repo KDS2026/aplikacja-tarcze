@@ -1,0 +1,10 @@
+Otwórz index.html w przeglądarce (aplikacja działa bez internetu).
+
+→ z powitania pokazuje pierwszą klatkę tarczy. Kolejne → uruchamia film.
+→ podczas tarczy lub po jej końcu uruchamia przerywnik.
+→ podczas przerywnika wycisza go przez 1,4 sekundy i pokazuje zatrzymaną pierwszą klatkę następnej tarczy. Kolejne → uruchamia tarczę.
+Między czterema tarczami są trzy przerywniki.
+← cofa o jedną planszę i zatrzymuje film.
+Spacja — pauza / wznowienie. F — pełny ekran. Esc — wyjście z pełnego ekranu.
+Przyciski znikają po chwili; porusz myszą, żeby je pokazać.
+Zachowaj folder media obok index.html i app.js.
