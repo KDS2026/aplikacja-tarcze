@@ -64,7 +64,27 @@ function togglePause(){
  const v=videos[active];if(v.paused)play();else v.pause();label();
 }
 function wake(){document.body.classList.remove('quiet');clearTimeout(hideTimer);hideTimer=setTimeout(()=>{if(!loading&&!fading)document.body.classList.add('quiet');},3000);}
-function fullscreen(){if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen().catch(()=>{});}
+function fullscreen(){
+ const root=document.documentElement;
+ const entered=document.fullscreenElement||document.webkitFullscreenElement;
+ const method=entered?(document.exitFullscreen||document.webkitExitFullscreen):(root.requestFullscreen||root.webkitRequestFullscreen);
+ if(!method){fullscreenHelp();return;}
+ try{
+  const result=method.call(entered?document:root);
+  if(result&&result.catch)result.catch(fullscreenHelp);
+ }catch(e){fullscreenHelp();}
+}
+function fullscreenHelp(){
+ error('Ta przeglądarka nie udostępnia pełnego ekranu. Otwórz ten sam link w Chrome, Edge, Firefox lub Safari i naciśnij „Pełny ekran”. W podglądzie Codexa ta funkcja jest niedostępna.');
+}
+function fullscreenLabel(){
+ const entered=!!(document.fullscreenElement||document.webkitFullscreenElement);
+ const button=document.querySelector('#full');
+ button.textContent=entered?'Wyjdź z pełnego ekranu':'Pełny ekran';
+ button.setAttribute('aria-pressed',String(entered));wake();
+}
+document.addEventListener('fullscreenchange',fullscreenLabel);
+document.addEventListener('webkitfullscreenchange',fullscreenLabel);
 // Capture obsługuje klawisze także po kliknięciu przycisku lub filmu.
 window.addEventListener('keydown',e=>{
  const key=e.code||e.key;
