@@ -14,4 +14,4 @@ Pobierz repozytorium jako ZIP i rozpakuj. Otwórz `index.html` w przeglądarce. 
 - **Spacja** — pauza lub wznowienie.
 - **F** — pełny ekran; **Esc** — wyjście.
 
-Między czterema tarczami wyświetlane są trzy przerywniki.
+Przerywnik wyświetlany jest po planszy powitalnej, przed pierwszą tarczą, oraz między kolejnymi tarczami.

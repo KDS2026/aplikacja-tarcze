@@ -1,4 +1,4 @@
-const slides=[null,1,5,2,5,3,5,4];
+const slides=[null,5,1,5,2,5,3,5,4];
 const videos=[document.querySelector('#a'),document.querySelector('#b')];
 const cover=document.querySelector('#cover'),status=document.querySelector('#status');
 let index=0,active=0,generation=0,hideTimer,loadTimer,fadeTimer,loading=false,fading=false;
@@ -50,7 +50,7 @@ function fadeNext(){
 }
 function forward(){
  if(fading)return;
- if(index===0)return show(1,false);
+ if(index===0)return show(1,true);
  if(slides[index]===5)return fadeNext();
  const v=videos[active];
  if(v.paused&&!v.ended)return play();
